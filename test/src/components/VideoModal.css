@@ -1,0 +1,64 @@
+.vid-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.85); /* Абдан караңгы фон */
+  display: flex; justify-content: center; align-items: center;
+  z-index: 3000;
+  backdrop-filter: blur(5px);
+}
+
+.vid-content {
+  background: #1a1a1a; 
+  color: white;
+  width: 90%; max-width: 800px;
+  border-radius: 15px; overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  animation: fadeIn 0.3s ease;
+  display: flex; flex-direction: column;
+}
+
+@keyframes fadeIn { from {opacity: 0; transform: scale(0.95);} to {opacity: 1; transform: scale(1);} }
+
+.close-vid {
+  position: absolute; top: 15px; right: 15px;
+  background: rgba(255,255,255,0.1); border: none; border-radius: 50%;
+  width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+}
+.close-vid:hover { background: rgba(255,255,255,0.3); }
+
+/* VIDEO PLAYER */
+.video-player-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+}
+
+.vid-info { padding: 20px; border-bottom: 1px solid #333; }
+.vid-info h2 { margin: 0 0 5px 0; font-size: 20px; }
+.vid-info p { color: #aaa; font-size: 13px; margin: 0; }
+
+/* PLAYLIST */
+.playlist { padding: 20px; background: #222; }
+.playlist h3 { margin: 0 0 15px 0; font-size: 14px; text-transform: uppercase; color: #777; }
+
+.playlist-grid { display: flex; flex-direction: column; gap: 10px; }
+
+.pl-item {
+  display: flex; gap: 15px; padding: 10px; border-radius: 8px; cursor: pointer;
+  transition: 0.2s;
+}
+.pl-item:hover { background: #333; }
+.active-vid { background: #333; border-left: 3px solid #1abc9c; }
+
+.pl-thumb {
+  width: 100px; height: 60px; border-radius: 6px; overflow: hidden; position: relative;
+}
+.pl-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+.play-icon-sm {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.6); padding: 5px; border-radius: 50%; display: flex;
+}
+
+.pl-text h4 { margin: 0 0 5px 0; font-size: 14px; font-weight: 500; color: #eee; }
+.pl-text span { font-size: 12px; color: #888; display: flex; align-items: center; gap: 5px; }

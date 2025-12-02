@@ -1,0 +1,151 @@
+.rescue-overlay {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  
+  min-height: 100vh; 
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  padding-top: 50px; 
+  z-index: 3500;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+}
+
+.rescue-content {
+  background: #fdfbf7;
+  width: 100%;
+  max-width: 650px;
+ 
+  max-height: 90vh; 
+  border-radius: 20px;
+  position: relative;
+  
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  animation: zoomInRescue 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  margin-top: 5vh; 
+}
+
+@keyframes zoomInRescue {
+  from { opacity: 0; transform: scale(0.95) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.close-rescue {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s;
+}
+.close-rescue:hover {
+  background: #ffe0e0;
+  color: #e74c3c;
+  transform: rotate(90deg);
+}
+
+
+.rescue-header {
+  padding: 25px 25px 15px;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #eee;
+  flex-shrink: 0;
+}
+.rescue-header h2 { margin: 0 0 5px; color: #d35400; font-size: 22px; }
+.rescue-header p { margin: 0; color: #777; font-size: 13px; }
+
+
+.stories-list {
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #fdfbf7;
+  
+}
+
+.stories-list::-webkit-scrollbar { width: 6px; }
+.stories-list::-webkit-scrollbar-track { background: transparent; }
+.stories-list::-webkit-scrollbar-thumb { background: #dcdcdc; border-radius: 10px; }
+.stories-list::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+
+.story-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.story-card:hover { transform: translateY(-2px); }
+
+.story-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.story-top h3 { margin: 0; color: #2c3e50; font-size: 17px; }
+.story-date { font-size: 11px; color: #95a5a6; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+
+
+.ba-container {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 15px;
+}
+.ba-img {
+  position: relative; flex: 1; height: 130px; border-radius: 12px; overflow: hidden;
+}
+.ba-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+.ba-img:hover img { transform: scale(1.05); }
+
+.ba-badge {
+  position: absolute; top: 8px; left: 8px;
+  padding: 4px 8px; border-radius: 6px;
+  font-size: 10px; font-weight: 800; color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-transform: uppercase;
+}
+.bad { background: #e74c3c; }
+.good { background: #27ae60; }
+
+.ba-arrow {
+  display: flex; align-items: center; justify-content: center;
+  background: white; border: 1px solid #eee; border-radius: 50%;
+  width: 28px; height: 28px; flex-shrink: 0; color: #aaa;
+}
+
+.story-text { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 15px; }
+
+
+.story-actions { display: flex; gap: 10px; border-top: 1px solid #f5f5f5; padding-top: 15px; }
+.btn-love, .btn-share {
+  flex: 1; border: none; background: #fff5f5; color: #c0392b;
+  padding: 10px; border-radius: 10px; font-weight: 600; font-size: 12px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: 0.2s;
+}
+.btn-love:hover { background: #ffe0e0; }
+.btn-share { background: #f4f4f4; color: #555; }
+.btn-share:hover { background: #eaeaea; }
+
+
+@media (max-width: 600px) {
+  .rescue-content { max-height: 95vh; width: 95%; margin-top: 10px; }
+  .ba-container { flex-direction: column; }
+  .ba-img { width: 100%; height: 160px; }
+  .ba-arrow { transform: rotate(90deg); margin: 5px 0; }
+}

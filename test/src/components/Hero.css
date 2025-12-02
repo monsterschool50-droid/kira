@@ -1,0 +1,19 @@
+.hero-banner {
+  height: 380px;
+  background-image: url('https://images.unsplash.com/photo-1548767797-d8c844163c4c?w=1200&q=80');
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::before {
+  content: ''; position: absolute; top:0; left:0; right:0; bottom:0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
+}
+.hero-text { position: relative; z-index: 2; max-width: 450px; }
+.hero-text h1 { color: white; font-size: 42px; line-height: 1.1; margin: 0; }
