@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './Header.css';
-import { PawPrint, Search, Heart, X, ShoppingCart } from 'lucide-react';
+import { PawPrint, Heart, X, ShoppingCart, Menu } from 'lucide-react';
 
 
 const Header = ({ favorites = [], cartCount = 0, onNavigate, onOpenCart }) => {
   const [showList, setShowList] = useState(false); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
     <div className="header-wrapper">
@@ -17,7 +19,7 @@ const Header = ({ favorites = [], cartCount = 0, onNavigate, onOpenCart }) => {
         </div>
 
      
-        <ul className="nav-menu">
+        <ul className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <li onClick={() => onNavigate('home')}>Home</li>
           <li onClick={() => onNavigate('adopt')}>Adopt</li>
           <li onClick={() => onNavigate('community')}>Community</li>
@@ -71,6 +73,11 @@ const Header = ({ favorites = [], cartCount = 0, onNavigate, onOpenCart }) => {
           </div>
 
           <button className="btn-explore" onClick={() => onNavigate('adopt')}>EXPLORE PETS</button>
+
+          {/* Бургер меню баскычы */}
+          <button className="menu-toggle" onClick={toggleMenu}>
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
     </div>

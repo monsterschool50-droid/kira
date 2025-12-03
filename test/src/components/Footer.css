@@ -4,3 +4,13 @@
 .f-item b { color: #333; font-size: 13px; margin-bottom: 5px; }
 .f-logo { display: flex; align-items: center; gap: 5px; font-weight: bold; font-size: 16px; color: #333; }
 .soc-row { display: flex; gap: 10px; color: #555; }
+
+/* Адаптация */
+@media (max-width: 768px) {
+  .footer-cont {
+    flex-direction: column; /* Элементтерди тигинен жайгаштыруу */
+    gap: 30px; /* Аралык кошуу */
+    align-items: center; /* Борборго тегиздөө */
+    text-align: center;
+  }
+}

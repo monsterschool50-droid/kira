@@ -101,3 +101,26 @@
   cursor: pointer;
   color: #e74c3c;
 }
+
+/* AnimalModal.css ичине кошумча */
+
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr; /* Бир колонка */
+  }
+  
+  .modal-img-wrapper img {
+    height: 200px; /* Телефондо сүрөт өтө узун болбосун */
+  }
+  
+  .modal-content {
+    width: 95%;
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .stats-row {
+    flex-wrap: wrap; /* Статистика сыйбай калса ылдый түшсүн */
+    gap: 15px;
+  }
+}
